@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "@backstage/backend-common": "workspace:^",
+    "@backstage/backend-plugin-manager": "workspace:^",
     "@backstage/backend-tasks": "workspace:^",
     "@backstage/catalog-client": "workspace:^",
     "@backstage/catalog-model": "workspace:^",

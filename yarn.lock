@@ -3662,6 +3662,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@backstage/backend-plugin-manager@workspace:^, @backstage/backend-plugin-manager@workspace:packages/backend-plugin-manager":
+  version: 0.0.0-use.local
+  resolution: "@backstage/backend-plugin-manager@workspace:packages/backend-plugin-manager"
+  dependencies:
+    "@backstage/backend-common": "workspace:^"
+    "@backstage/backend-test-utils": "workspace:^"
+    "@backstage/cli": "workspace:^"
+    "@backstage/config": "workspace:^"
+    "@backstage/errors": "workspace:^"
+    "@backstage/types": "workspace:^"
+    "@types/cron": ^2.0.0
+    wait-for-expect: ^3.0.2
+  languageName: unknown
+  linkType: soft
+
 "@backstage/backend-tasks@workspace:^, @backstage/backend-tasks@workspace:packages/backend-tasks":
   version: 0.0.0-use.local
   resolution: "@backstage/backend-tasks@workspace:packages/backend-tasks"
@@ -22540,6 +22555,7 @@ __metadata:
   resolution: "example-backend@workspace:packages/backend"
   dependencies:
     "@backstage/backend-common": "workspace:^"
+    "@backstage/backend-plugin-manager": "workspace:^"
     "@backstage/backend-tasks": "workspace:^"
     "@backstage/catalog-client": "workspace:^"
     "@backstage/catalog-model": "workspace:^"

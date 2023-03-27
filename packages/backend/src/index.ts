@@ -34,6 +34,7 @@ import {
   UrlReaders,
   useHotMemoize,
   ServerTokenManager,
+  resolvePackagePath,
 } from '@backstage/backend-common';
 import { TaskScheduler } from '@backstage/backend-tasks';
 import { Config } from '@backstage/config';
@@ -68,6 +69,7 @@ import linguist from './plugins/linguist';
 import { PluginEnvironment } from './types';
 import { ServerPermissionClient } from '@backstage/plugin-permission-node';
 import { DefaultIdentityClient } from '@backstage/plugin-auth-node';
+import { PluginManager } from '@backstage/backend-plugin-manager';
 
 function makeCreateEnv(config: Config) {
   const root = getRootLogger();
@@ -84,6 +86,7 @@ function makeCreateEnv(config: Config) {
   const identity = DefaultIdentityClient.create({
     discovery,
   });
+  PluginManager.fromConfig(config);
 
   root.info(`Created UrlReader ${reader}`);
 
@@ -123,6 +126,8 @@ async function main() {
   });
 
   const createEnv = makeCreateEnv(config);
+
+  logger.info(JSON.stringify(resolvePackagePath('@backstage/backend-common')));
 
   const healthcheckEnv = useHotMemoize(module, () => createEnv('healthcheck'));
   const catalogEnv = useHotMemoize(module, () => createEnv('catalog'));
